@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Agencyname:</strong>
+  <%= @instagram_tool.AgencyName %>
+</p>
+
+<p>
+  <strong>Loginid:</strong>
+  <%= @instagram_tool.LoginId %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @instagram_tool.PassWord %>
+</p>
+
+<p>
+  <strong>Contractdate:</strong>
+  <%= @instagram_tool.ContractDate %>
+</p>
+
+<p>
+  <strong>Customername:</strong>
+  <%= @instagram_tool.CustomerName %>
+</p>
+
+<p>
+  <strong>Customeraddress:</strong>
+  <%= @instagram_tool.CustomerAddress %>
+</p>
+
+<p>
+  <strong>Customerphone:</strong>
+  <%= @instagram_tool.CustomerPhone %>
+</p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @instagram_tool.payment %>
+</p>
+
+<%= link_to 'Edit', edit_instagram_tool_path(@instagram_tool) %> |
+<%= link_to 'Back', instagram_tools_path %>

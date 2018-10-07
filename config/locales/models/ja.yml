@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      instagram_tool:　インスタグラムツール
+    attributes:
+      instagram_tool:
+        AgencyName: 代理店名
+        LoginId: ログインID
+        PassWord: パスワード
+        ContractDate: 契約日
+        CustomerName: 顧客名
+        CustomerAddress: 顧客住所
+        CustomerPhone: 顧客電話番号
+        payment: 支払い方法
