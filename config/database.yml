@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: salse_test_production
-  username: salse_test
-  password: <%= ENV['SALSE_TEST_DATABASE_PASSWORD'] %>
+  username: root
+  password:
