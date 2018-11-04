@@ -9,7 +9,7 @@ class Confirmation::InstagramToolController < ApplicationController
     @instagram_tool = InstagramTool.find(params[:id])
     @instagram_tool.update(issue_flag: true)
     send_created_mails(@instagram_tool)
-    render text: "メールを送信しました。今後ともよろしくお願いします。"
+    redirect_to root_path
   end
 
   private
