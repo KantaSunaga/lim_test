@@ -1,0 +1,16 @@
+<p>いつもお世話になっております。</p>
+
+<p>
+  株式会社LIM営業チームです。
+  エターナルフォースの新規申し込みがございましたので、アカウントの開設をお願いします。
+</p>
+
+<div>
+  ログイン_ID: <%= @customer.LoginId %>
+  パスワード: <%= @customer.PassWord %>
+</div>
+
+<%#local開発のためベタ書きしているけどURL,PATHでどうにかしたい%>
+発行後はお手数ですが<%= link_to "こちら", confirmation_url(@customer.hash_value)%>から入力をお願いします。
+
+今後とも宜しくお願いします。

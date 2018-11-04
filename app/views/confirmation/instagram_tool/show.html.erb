@@ -1,0 +1,11 @@
+<h1>Confirmation::InstagramTool#show</h1>
+<p>Find me in app/views/confirmation/instagram_tool/show.html.erb</p>
+
+<%= form_for @instagram_tool, url: confirmation_instagram_tool_update_path_path(@instagram_tool.id) do |f| %>
+  <%= f.hidden_field :id, value: @instagram_tool.id %>
+  <labe><%= @instagram_tool.LoginId %></labe>のアカウントを発行しましたか？
+
+  <%= f.submit "発行しました" %>
+  *ボタンが押されると登録されたお客様のメールアドレスへ通知メールが送信されます。
+  再度ご確認ください。
+<% end %>

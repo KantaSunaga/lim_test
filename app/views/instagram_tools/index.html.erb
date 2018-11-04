@@ -17,9 +17,11 @@
         <th>パスワード</th>
         <th>契約日</th>
         <th>顧客名</th>
+        <th>メールアドレス</th>
         <th>顧客住所</th>
         <th>顧客電話番号</th>
         <th>支払い方法</th>
+        <th>発行状況</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -32,9 +34,11 @@
           <td><%= instagram_tool.PassWord %></td>
           <td><%= instagram_tool.ContractDate %></td>
           <td><%= instagram_tool.CustomerName %></td>
+          <td><%= instagram_tool.email %></td>
           <td><%= instagram_tool.CustomerAddress %></td>
           <td><%= instagram_tool.CustomerPhone %></td>
           <td><%= instagram_tool.payment %></td>
+          <th><%= instagram_tool.issue_flag ? "発行済み" : "未発行" %></th>
           <td><%= link_to 'Show', instagram_tool %></td>
           <td><%= link_to 'Edit', edit_instagram_tool_path(instagram_tool) %></td>
           <td><%= link_to 'Destroy', instagram_tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>

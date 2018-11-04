@@ -1,6 +1,7 @@
 class InstagramToolsController < ApplicationController
   before_action :set_instagram_tool, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @q = InstagramTool.ransack(params[:q])
     @instagram_tools = @q.result(distinct: true).page(params[:page]).per(10)
@@ -23,7 +24,11 @@ class InstagramToolsController < ApplicationController
   def create
     @instagram_tool = InstagramTool.new(instagram_tool_params)
     if @instagram_tool.save
-      NotificationMailer.send_new(@instagram_tool).deliver_now
+      # なぜかモデルのメソッドが認識されないから苦渋の選択としてコントローラーに書く
+      encryptor = ::ActiveSupport::MessageEncryptor.new(ENV["SECRET_HASH"], cipher: 'aes-256-cbc')
+      value = encryptor.encrypt_and_sign(@instagram_tool.id)
+      @instagram_tool.update(hash_value: value)
+      send_new_apply_mails(@instagram_tool)
       render "layouts/thanks"
     else
       render :new
@@ -60,6 +65,15 @@ class InstagramToolsController < ApplicationController
     end
 
     def instagram_tool_params
-      params.require(:instagram_tool).permit(:AgencyName, :LoginId, :PassWord, :ContractDate, :CustomerName, :CustomerAddress, :CustomerPhone, :payment)
+      params.require(:instagram_tool).permit( :AgencyName,
+                                              :LoginId,
+                                              :PassWord,
+                                              :ContractDate,
+                                              :CustomerName,
+                                              :CustomerAddress,
+                                              :CustomerPhone,
+                                              :payment,
+                                              :issue_flag,
+                                              :email)
     end
 end
